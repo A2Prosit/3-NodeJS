@@ -144,5 +144,9 @@ Voici une liste exhaustive
 **`Comment marche l'asynchrone :`**
 ![](https://www.developpez.net/forums/attachments/p216799d1/a/a/a)
 **1 -** Pile d'exécution, ou "Call Stack" quui fait partie de l'API du navigateur, prise en compte de manière asynchrone.
+
 **2 -** On crée un thread avec un délai, et dès qu'il est finis, il s'en va dans la Callback Queu
+
 **3 -** Si pile exécution vide, on envois dans la pile d'exécution.
+
+
