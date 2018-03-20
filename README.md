@@ -2,12 +2,12 @@
 # Prosit 5.03 - NODE.JS
 
 ## Mots clés
- * Node.js
- * React
- * Mode synchronisé
- * Framework
- * jsx
- * Chargement bloquant
+ * Node.js : /
+ * React : /
+ * Mode synchronisé : <=> Mode asynchrone
+ * Framework : Boite à outils 
+ * jsx : Extension pour reactJS, HTML dans le Javascript (gérer du HTML via du Javascript)
+ * Chargement bloquant : /
 
 ## Analyse du besoin
 ### Quoi ?
@@ -50,11 +50,10 @@ Aucunes
  * Réaliser le workshop
 
 # 1- NodeJS 
-![](https://res.cloudinary.com/smooth/image/upload/c_scale,w_800,q_auto,f_auto/v1504086120/ff8zien7jco4safoifpi)
 
 Node.js est un **environnement open-source** qui permet de développer des applications multi-plateformes :
 - Basé sur V8 de google (moteur JS)
-- Ecriture côté client et serveur ⇒ Concurent PHP & Java
+- Ecriture côté client et serveur (plus serveur) ⇒ Concurent PHP & Java
 
 On retrouve :
 - Possibilité de faire de **l'asynchrone**
@@ -63,7 +62,7 @@ On retrouve :
 - Configuration facile
 - Très grande communauté (plus importante sous GitHub)
 - De nombreux modules grâce au NPM (Node Package Manager)
-- Supporte les websockets
+- Supporte les **websockets**
 
 **`Les websockets`**
 Une action effectuée par un utilisateur se répercute directement sur les autres utilisateurs,  très utile pour le temps réel. (ex : blackfriday, chat facebook...)
@@ -82,29 +81,32 @@ On l'utilise dans :
 
 # 2 - React JS
 
-- Basé sur Facebook (2013), Instagram, Netflix...
+- Développé par Facebook (2013), Instagram, Netflix...
 - Basé sous AngulasJS
 - C'est une librairie et non un framework
 - Utilisé pour de très grands volumes d'informations
+- Faciliter la création d'application web monopage
 
 **`Comment ça marche`**
-
+- Doit travailler avec d'autres framework, comme AngularJS.
 - .jsx : HTML dans le Javascript (gérer du HTML via du Javascript)
-- Permet de créer des composants <=> Interfaces
+- Permet de créer des composants  qui peuvent changer d'états <=> Interfaces (càd la vue)
 - Principe "d'embriquement de composants" (composant dans composants)
 - Composants réutilisables
+- Permet de créer des applications mobiles.
 - Utilisation de l'algorithme de la réconciliation (VirtualDOM)
 	-	=> Modifie l'état, modifiant le DOM virtuel, puis injecte DOM virtuel dans réel
 	-	=> A chaque modification++ DOM => Compare modifications pour décider si il modifie le DOM réel
 ![](https://s3.amazonaws.com/media-p.slid.es/uploads/44933/images/1881608/reactjs-virtual-dom-real-dom.png)
 
-- Permet de créer des applications mobiles.
 
+**NB :** Facebook a créer **"Flux"**, c'est un pattern proposé par Facebook qui est une alternative au MVC.
+![](http://blog.soat.fr/wp-content/uploads/2016/04/flux-diagram-white-background-768x383.png)
+Globalement : 
 
-**OPTIONNEL - Extention : "Flux"**
-⇒ Facebook a crée "Flux" => Redux : 
-- Gérer la partie "Etat" => Décrire + modifier 
-- Peut interagir avec React JS
+Lorsqu'un utilisateur fais une action **Action Creators**, les actions sont envoyés vers le **dispatcher**. On le **store** qui s'est enregistré auprès de lui, lui permettant de lancer des **callbacks** (des appels uniques).
+
+En lançant un **callback**, on va mettre à jour les données du **store** en exécutant les règles associés au callback, c'est lui qui gère les états de l’application. On a également un évènement qui est lancé, pour avertir la vue du changement d'état, et qui va lui demander de mettre à jour l'affichage, exactement comme le pattern Observer / Observable.
 
 # 3- Les framework JS 
 
@@ -114,16 +116,15 @@ On l'utilise dans :
 - Cout : Complètement gratuit, clés en main pour faciliter la vie des devs
 
 Voici une liste exhaustive 
-- **Angulas.js** (Google) : Framework open-source dédié au dev d'appli web monopage.
--** Vue.JS** : liaison bidirectionnelle, meilleurs choix pour le développement rapide de solutions multiplateforme.
-- **Ember.js** : meilleur framework JS pour applis web.
-- **Meteor.js** : Développement clé en main, applications mobiles pure JS, couvre toutes les phases du cycle de dév, full stack, pour applications web synchronisent avec le serveur
-- **Express.js** : "micro-framewrok" open source, particulièrement flexible
-- **React.js** (facebook) : Bibliothèque javaScript pour faciliter la création d'applications web monopage.
-
+- **Angulas.js** (Google) : Open source, permet principalement de développer des pages web.
+- **vue.js**  : Open source, progressifs, pour construire des interfaces utilisateurs. Il peut aussi s'en servir pour faire des pages applicatives seules en web. Sa particularité est la liaison bidirectionnelle, c'est le meilleur choix pour le dév. rapide de solutions multiplateforme.
+- **Ember.js** : Open-source, meilleur framework JS pour applis web, architecture MVC.
+- **Meteor.js** : Open-source, basé sur Node.js, développement clé en main, applications mobiles pure JS, couvre toutes les phases du cycle de dév, full stack, architectures client-serveur avec possibilité de faire des requêtes en étant déconnecté du serveur.
+- **Express.js** : Open source,  basé sur Node.js, particulièrement flexible, relativement minimaliste, permettant d'étendre ses fonctionnalités via des plugins.
 
 
 # 4- Principe de l'Asynchrone
+![](https://res.cloudinary.com/smooth/image/upload/c_scale,w_800,q_auto,f_auto/v1504086120/ff8zien7jco4safoifpi)
 
 **`Avantage de l'asynchrone :`**
 
@@ -145,5 +146,3 @@ Voici une liste exhaustive
 **1 -** Pile d'exécution, ou "Call Stack" quui fait partie de l'API du navigateur, prise en compte de manière asynchrone.
 **2 -** On crée un thread avec un délai, et dès qu'il est finis, il s'en va dans la Callback Queu
 **3 -** Si pile exécution vide, on envois dans la pile d'exécution.
-
-
