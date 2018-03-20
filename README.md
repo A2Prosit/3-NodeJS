@@ -53,10 +53,10 @@ Aucunes
 
 Node.js est un **environnement open-source** qui permet de développer des applications multi-plateformes :
 - Basé sur V8 de google (moteur JS)
-- Ecriture côté client et serveur (plus serveur) ⇒ Concurent PHP & Java
+- Ecriture côté serveur ⇒ Concurent PHP & Java
 
 On retrouve :
-- Possibilité de faire de **l'asynchrone**
+- Possibilité de faire de **l'asynchrone** (Monothread)
 - Même syntaxe pour front-end et bakc end (augmenter la productivité)
 - Haute performances
 - Configuration facile
@@ -143,6 +143,7 @@ Voici une liste exhaustive
 
 **`Comment marche l'asynchrone :`**
 ![](https://www.developpez.net/forums/attachments/p216799d1/a/a/a)
+
 **1 -** Pile d'exécution, ou "Call Stack" quui fait partie de l'API du navigateur, prise en compte de manière asynchrone.
 
 **2 -** On crée un thread avec un délai, et dès qu'il est finis, il s'en va dans la Callback Queu
